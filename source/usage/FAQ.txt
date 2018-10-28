@@ -1,0 +1,83 @@
+FAQ
+=================================================
+
+- wat
+
+=================================================
+故障检修过程
+=================================================
+
+故障检修平行问题
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+有时ipyrad在HPC系统中会出现平行运算的一些问题。首先会在运算节点上得到交互式壳（这里是带有 *qsub -I* 的YMMV），读者需要指定队列和特别的来源
+
+::
+
+  qsub -I
+
+
+::
+  
+  ipcluster start —-n 4 —-daemonize
+
+
+然后输入 *ipython* 打开ipython的会话。
+
+::
+  
+  import ipyparallel as ipp
+
+  rc = ipp.Client()
+  rc[:]
+
+结果应当长这样：..parsed-literal:
+
+::
+  
+  Out[1]: <DirectView [0, 1, 2, 3]>
+
+
+::
+
+  import ipyparallel as ipp 
+
+  rc = ipp.Client(profile=“default”)
+  rc[:]
+
+
+::
+
+  import ipyrad as ip
+
+  ## 
+  data = ip.load_json(“dir/path.json”)
+
+  print data._ipcluster
+
+
+::
+
+  data = ip.Assembly(‘test’)
+
+  data.set_params(“raw_fastq_path”, “path_to_data/\*.gz”)
+  data.set_params(“barcodes_path”, “path_to_barcode.txt”)
+
+  data.run(“1”)
+
+  print data.stats
+  print data._ipcluster
+
+
+::
+  
+  {‘profile’: ‘default’, ‘engines’: ‘Local’, ‘quiet’: 0, ‘cluster_id’: ‘’, ‘timeout’: 120, ‘cores’: 48}
+
+
+::
+
+  data.write_params(‘params-test.txt’)
+
+
+不要忘了完成时终止ipcluster嗷嗷~~
+

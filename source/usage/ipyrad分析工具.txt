@@ -1,0 +1,54 @@
+ipyrad分析工具
+=================================================
+
+ipyrad通过一系列的分析工具将位点信息或SNP信息进行有效地分类、将个体信息归类到群体数据、过滤missing data、并行运算，使其能更好地进行下游的推断性分析（例如，STRUCTURE, BUCKy，BPP）。
+
+本节展示了一系列使用Jupyter notebooks(可复写工具)的案例分析。实际上，ipyrad最初设计就是与jupyter无缝衔接的。使用Jupyter notebook运行以下指导手册，并且在notebook中使用ipyrad，最后在notebook中检查这些分析工具。
+
+=================================================
+Jupyter notebooks
+=================================================
+
+这是使用ipyrad的一个可选择工具，我们强烈建议读者学习。以下是学习视频链接。
+
+- Jupyter Notebook简介（video）
+- 在HPC服务器上运行jupyter
+- 更多并行运算
+
+=================================================
+*ipyrad* API 全案例
+=================================================
+
+这些notebooks展示了使用ipyrad API的案例
+
+- Pedicularis API (马先蒿属, run in jupyter-notebook)
+- Finch API (雀类, run in jupyter-notebook)
+
+=================================================
+*ipyrad* API 分析工具
+=================================================
+
+这些notebooks展示了如何使用Jupyter-notebook运行平行的下游分析，并且通过ipyrad分析工具形成许多其他程序的输入文件。
+
+- TETRAD quartet species tree inference 
+- RAxML concatenation tree inference 
+- BPP species tree and delimitation 
+- BUCKY concordance tree inference 
+- STRUCTURE population structure 
+- STRUCTURE with pop assignments 
+- ABBA BABA admixture 
+- TREEMIX admixture graph inference 
+
+=================================================
+*命令行程序*
+=================================================
+
+这些页面讨论的是使用RAD-seq数据集的命令行分析工具
+ 
+- TETRAD command line
+
+=================================================
+其他的jupyter notebooks 
+=================================================
+
+- 读者可在这进行补充

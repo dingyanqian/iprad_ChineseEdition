@@ -1,0 +1,18 @@
+支持
+=================================================
+
+ipyrad英文原版说明书
+
+- http://ipyrad.readthedocs.org
+
+FAQ和故障排查文件：
+
+- http://ipyrad.readthedocs.org/faq.html
+
+源代码和Github：
+
+- http://github.com/dereneaton/ipyrad
+
+有关ipyrad任何疑问，评论或建议，请联系：
+
+- https://gitter.im/dereneaton/ipyrad
