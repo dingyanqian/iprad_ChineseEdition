@@ -10,7 +10,7 @@ ipyrad：RAD-seq数据集交互式组装分析软件
 
 在本文档中，读者能够学习到ipyrad的各个特征（特征），设计理念（精要）以及更多的细节（软件运行指导）。几个新的分析工具也包含在内，利于下游分析。
 
-有关于ipyrad任何疑问，欢迎加入讨论组 gitter_https://gitter.im/dereneaton/ipyrad
+有关于ipyrad任何疑问，欢迎加入讨论组 gitter_.
 
 .. toctree::
    :maxdepth: 10
