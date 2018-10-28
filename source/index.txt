@@ -1,0 +1,33 @@
+.. ipyrad_ChineseEdition documentation master file, created by
+   sphinx-quickstart on Mon May 28 18:51:03 2018.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+ipyrad：RAD-seq数据集交互式组装分析软件
+=================================================
+
+.. toctree::
+   :maxdepth: 10
+   :caption: Contents:
+  
+   usage/ipyrad精要
+   usage/特征
+   usage/安装
+   usage/输入文件
+   usage/组装步骤和分枝方法
+   usage/组装参数
+   usage/组装方法
+   usage/软件运行指导
+   usage/Jupyter和ipyrad API
+   usage/ipyrad分析工具
+   usage/版本笔记
+   usage/支持
+   usage/FAQ
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
