@@ -1,0 +1,135 @@
+安装
+=================================================
+
+=================================================
+安装conda
+=================================================
+
+安装ipyrad最简单的方法就是先安装conda，即可包含所有的关联文件。conda是一个用命令行安装的Python程序包。如已完成conda安装，请直接至ipyrad安装步骤。否则，在系统中先为python2.7安装conda程序包。 
+
+conda有两种形式：anaconda和miniconda。这两者唯一的区别就在于anaconda包括了一系列通用的大型python包，而miniconda只包括了一些基础的和比较新的包。建议安装miniconda，也正是ipyrad中使用的。 
+
+下面的代码包括了如何下载conda。根据不同系统选择，若使用的是HPC cluster(高性能计算机群)，与Linux相同。 
+
+在conda安装的时候需回答一些问题，请选择“yes”。包括以下问题：是否将新产生的miniconda（或anaconda）的安装路径设置在本机的路径中，选择“yes”；这是为了在使用时允许本机在“～/.bashrc”（或～/.bash_profile on Mac）通过添加一些行使conda使用更简便。
+
+Mac系统安装conda指南
+>>>>>>>>>>>>>>>>>>>>>>>>>
+
+::
+
+   ## curl命令用来从网站上下载安装包。
+   ## 注意 -O 的标记是大写的字母o并非数字0。
+   curl -O https://repo.continuum.io/miniconda/Miniconda2-latest-MacOSX-x86_64.sh
+
+   ## 安装miniconda。默认路径为主目录，如’/home/user/miniconda2’
+   ## 询问是否将miniconda目录添加至$PATH时，选择yes
+   bash Miniconda2-latest-MacOSX-x86_64.sh
+
+   ## 运行以下命令重新加载 ~/.bash_profile，将miniconda加载至本地路径中。
+   ## 这一步很关键，如此在终端输入conda时即可调用conda。
+   ## 若找不到 ~/.bash_profile，有可能为 ~/.bashrc。
+   source ~/.bash_profile
+
+   ## 检验conda是否安装完成。该步操作会显示安装conda的版本信息。
+   conda info
+
+Linux系统安装conda指南
+>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+::
+
+   ## wget命令用来从网站上下载安装包。
+   ## 注意 -O 的标记是大写的o并非0。
+   wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh
+
+   ## 安装miniconda。默认路径为主目录，如’/home/user/miniconda2’
+   ## 询问是否将miniconda目录添加至$PATH时，选择yes
+   bash Miniconda2-latest-Linux-x86_64.sh
+
+   
+   ## 现在重启终端或直接运行以下命令重新加载 ~/.bash_profile，将miniconda加载至本地路径。
+   ## 这一步很关键，如此在终端输入conda即可调用conda。
+   source ~/.bashrc
+
+   ## 检验conda是否安装完成。该步操作会显示安装conda的版本信息。
+   conda info
+
+=================================================
+安装ipyrad
+=================================================
+
+conda安装完成后，只需在终端输入以下命令即可轻松安装ipyrad。在这过程中，需要一些时间确认所有关联程序是否安装完成，请耐心等待。 *遇到报错时可重复输入命令，一般可解决* 切记添加 ``-c ipyrad`` ，这是conda识别需要安装哪个程序的关键。
+
+::
+
+   conda update conda                 ## 更新conda
+   conda install -c ipyrad ipyrad     ## 安装最新版本ipyrad
+
+若需安装特定版本的ipyrad，或更新旧版本，可使用以下代码：
+
+::
+
+   conda install -c ipyrad ipyrad=0.5.1     ## 安装指定版本
+   conda update -c ipyrad ipyrad            ## 更新至最新版本
+
+=================================================
+如何在HPC cluster中运行？
+=================================================
+
+本安装独立于系统权限，即不需要sudo，也不会更改系统配置；只需要根据上述步骤（参考Linux安装）将conda安装至local home目录（比如，/home/user）。
+
+独立性在安装和获取ipyrad及其诸多环境（其它python模块和可执行文件）时十分有用，并能自主更新。conda中有很多可用的软件，都可通过搜索conda软件名称获得。但需注意，若本地版本与系统环境不符，速度略慢。ipyrad中已经解决，但其他如RAxML，建议使用系统兼容版本以提高效率。 
+
+=================================================
+如何忽略或移除conda？
+=================================================
+
+如决定不再使用conda，移除也很简便。可通过直接删除conda及其它在miniconda文件夹中的已安装软件进行移除。然而更简单的方法是控制conda软件的“开关”，即在 ``~./bashrc`` 中注释miniconda的路径，然后再运行 ``source ~/.bashrc`` ，系统就会完全忽略掉conda软件。反之，取消注释，重新安排资源文件，就可恢复。
+
+=================================================
+ipyrad中依赖的程序环境
+=================================================
+
+conda安装将会同时安装以下所需环境： 
+
+**python程序包：**
+ 
+- Numpy - 科学运算过程 
+- Scipy - 科学运算过程 
+- Pandas - 控制数据框架 
+- Sphinx - 建立文件 
+- ipyrarallel - Parallel，threading，MPI 支持 
+- jupyter - 产生可复写的笔记本（IPython） 
+- Cython - python的C捆绑 
+- H5py - HDF5头和数据类型 
+- Toyplot - 绘图 
+
+**可执行文件：** 
+ 
+- vsearch - 从头组装程序 
+- muscle - 序列比对程序 
+- bwa_ - 参考序列比对程序 
+- smalt - 参考序列比对可选择程序 
+- samtools - 参考序列比对 
+- bedtools - 参考序列比对 
+- hdf5 - 大量数组储存／存取 
+- mpich - 平行化(mpirun, mpiexec)
+
+=================================================
+安装后错误信息排查
+=================================================
+
+在conda中安装完ipyrad后若得到以下报错信息：
+
+::
+  
+   ValueError(numpy.dtype has the wrong size, try recompiling)
+
+可能由于计算机系统或者本地的python包与conda安装的软件产生了冲突。可在终端中输入以下代码：
+
+::
+
+   export PYTHONNOUSERSITE=True
+
+然后运行ipyrad，这样可限制只使用conda安装包，而禁止本地python从自身库里寻找环境，从而解决两者冲突。
